@@ -20,10 +20,10 @@ class ParticleData(HouseInfo):
     def get_data_concentrations(self, data):
         particulate = {"good": 0, "moderate": 0, "bad": 0}
         for rec in data:
-            if float(rec) <= 50.0:
-                particulate.update({"good": particulate["good"]+1})
-            elif float(rec) <= 100.0:
-                particulate.update({"moderate": particulate["moderate"] + 1})
+            if rec <= 50.0:
+                particulate["good"] += 1
+            elif 50.0 < rec <= 100.0:
+                particulate["moderate"] += 1
             else:
-                particulate.update({"bad": particulate["bad"] + 1})
+                particulate["bad"] += 1
         return particulate
