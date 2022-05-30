@@ -24,7 +24,7 @@ test_area = 1
 recs = house_info.get_data_by_area("id", rec_area=test_area)
 print("\nHouse sensor records for area {} = {}".format(test_area, len(recs)))
 
-test_date = datetime.strptime("5/9/20", "%m/%d/%y")
+test_date = datetime.strptime("1/1/20", "%m/%d/%y")
 recs = house_info.get_data_by_date("id", rec_date=test_date)
 print("\nHouse sensor records for date: {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
 
@@ -44,6 +44,11 @@ recs = humidity_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Humidity sensor records for area {} = {}".format(test_area, len(recs)))
 print("\tAverage: {} humidity".format(mean(recs)))
 
+
+
+
+
+
 particle_data = ParticleData(data)
 recs = particle_data.get_data_by_area(rec_area=test_area)
 print("\nHouse Particle sensor records for area {} = {}".format(test_area, len(recs)))
@@ -53,7 +58,8 @@ print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
 print("\tBad Air Quality Recs: {}".format(concentrations["bad"]))
 
 recs = particle_data.get_data_by_date(rec_date=test_date)
-print("\nHouse Particle sensor records for date: {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
+print("\nHouse Particle sensor records for date: {} = {}".format(
+    test_date.strftime("%m/%d/%y"), len(recs)))
 concentrations = particle_data.get_data_concentrations(data=recs)
 print("\tGood Air Quality Recs: {}".format(concentrations["good"]))
 print("\tModerate Air Quality Recs: {}".format(concentrations["moderate"]))
